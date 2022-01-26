@@ -1,103 +1,135 @@
 import axios from 'axios';
-import { useEffect } from 'react';
+import './App.css';
+import { useEffect, useState } from 'react';
 
 function App() {
+  // const [ inputOne, setInputOne ] = useState("");
+  // const [ inputTwo, setInputTwo ] = useState("");
+  // const [ inputThree, setInputThree ] = useState("");
+  // const [ inputFour, setInputFour ] = useState("");
+  const inputOne = 't';
+  const inputTwo = 'g';
+  const inputThree = 'i';
+  const inputFour = 'f';
 
-  useEffect(() => {
+  const userInputs = [ inputOne, inputTwo, inputThree, inputFour ];
+
+  const [ randomWord, setRandomWord] = useState("");
+
+  const backronymArray = [];
+
+  const callDataMuse = userInputs.map((userInput) => {
     axios({
-      url: 'https://api.datamuse.com/sug?',
-      method: 'GET',
-      dataType: 'json',
-      params: {
-          s: "m",
-          max: 10
-      }
+        url: "https://api.datamuse.com/sug?",
+        method: 'GET',
+        dataType: 'json',
+        params: {
+        s: userInput,
+        max: 20, 
+        },
+
+      }).then((response) => {
+        
+      const resultsArray = response.data;
+      // console.log(resultsArray, 'dataresponse works');
+      const randomIndex = Math.floor(Math.random() * resultsArray.length);
+      console.log(randomIndex, 'index works');
+      // const randomWordLocal = resultsArray[randomIndex].word;
+      // console.log(randomWordLocal, 'last one works');
+      setRandomWord(resultsArray[randomIndex].word);
+      console.log(resultsArray[randomIndex].word);
+      })
+
+    });
+
+    console.log(callDataMuse);
 
 
-    }).then((response) => {
-      console.log(response.data);
-    })
-  })
+    Promise.all(callDataMuse)
+      .then((randomWord) => {
+        console.log(randomWord)
+      })
 
-  return (
-    <div>
-      <h1>TESSST!</h1>
-      <div>
+    // console.log(callDataMuse, 'this is working');
 
-        <div>
-        <form onSubmit={handleSubmitOne}>
-          <label htmlFor="one"></label>
-          <input type="text" id="one" maxLength={1} placeholder="One" onChange={handleInputOne} value={inputOne} />
-          <button>ADD</button>
-        </form>
 
-        {
-          infoOne.map((results) => {
-            return (
-              <li>
-                <p>{results['word']} </p>
-              </li>
-            )
-          })
-        }
+
+
+    // useEffect(() => {
+    //   // callDataMuse();
+    // }, []);
+
+    return (
+        <div className="App">
+            <h1> check console </h1>
         </div>
-
-        <div>
-        <form onSubmit={handleSubmitTwo}>
-          <label htmlFor="two"></label>
-            <input type="text" id="two" maxLength={1} placeholder="Two" onChange={handleInputTwo} value={inputTwo} />
-          <button>ADD</button>
-        </form>
-
-          {
-            infoTwo.map((resultss) => {
-              return (
-                <li>
-                  <p>{resultss['word']} </p>
-                </li>
-              )
-            })
-          }
-        </div>
-
-        <div>
-        <form onSubmit={handleSubmitThree}>
-          <label htmlFor="three"></label>
-            <input type="text" id="three" maxLength={1} placeholder="Three" onChange={handleInputThree} value={inputThree} />
-          <button>ADD</button>
-        </form>
-
-          {
-            infoThree.map((resultsss) => {
-              return (
-                <li>
-                  <p>{resultsss['word']} </p>
-                </li>
-              )
-            })
-          }
-        </div>
-
-        <div>
-        <form onSubmit={handleSubmitFour}>
-          <label htmlFor="four"></label>
-            <input type="text" id="four" maxLength={1} placeholder="Four" onChange={handleInputFour} value={inputFour}/>
-          <button>ADD</button>
-        </form>
-
-          {
-            infoFour.map((resultssss) => {
-              return (
-                <li>
-                  <p>{resultssss['word']} </p>
-                </li>
-              )
-            })
-          }
-        </div >
-      </div>
-    </div>
-  );
+    );
 }
 
 export default App;
+
+
+// WE WERE ABLE TO GET RANDOM WORD BACK FOR A SINGLE INPUT
+
+// function App() {
+  // const [ inputOne, setInputOne ] = useState("");
+  // const [ inputTwo, setInputTwo ] = useState("");
+  // const [ inputThree, setInputThree ] = useState("");
+  // const [ inputFour, setInputFour ] = useState("");
+//   const inputOne = 't';
+//   const inputTwo = 'g';
+//   const inputThree = 'i';
+//   const inputFour = 'f';
+
+//   const userInputs = [ inputOne, inputTwo, inputThree, inputFour ];
+//   // console.log(userInputs);
+
+//   const [ randomWord, setRandomWord] = useState([]);
+
+//   const backronymArray = [];
+
+//   const callDataMuse = (() => {
+//     axios({
+//         url: "https://api.datamuse.com/sug?",
+//         method: 'GET',
+//         dataType: 'json',
+//         params: {
+//           s: inputOne,
+//           max: 20, 
+//           },
+
+//       }).then((response) => {
+        
+//       const resultsArray = response.data;
+//       // console.log(resultsArray, 'dataresponse works');
+//       const randomIndex = Math.floor(Math.random() * resultsArray.length);
+//       // console.log(randomIndex, 'index works');
+//       // const randomWordLocal = resultsArray[randomIndex].word;
+//       // console.log(randomWordLocal, 'last one works');
+//       setRandomWord(resultsArray[randomIndex].word);
+      
+//       })
+//     });
+//     // console.log(callDataMuse);
+
+//     // console.log(alert);
+
+//     // Promise.all(callDataMuse)
+//     //   .then((randomWord) => {
+//         console.log(randomWord)
+//     //   })
+
+//     // console.log(callDataMuse, 'this is working');
+
+
+
+//     useEffect(() => {
+//       callDataMuse();
+//     }, []);
+
+//     return (
+//         <div className="App">
+//             <h1> check console </h1>
+//         </div>
+//     );
+// }
