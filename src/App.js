@@ -64,13 +64,13 @@ function App() {
   }, [allUserInputs])
 
 
-
+  const displayBackronym = backronymArray.join(' ')
 
 
   const handleSave = (e) => {
     e.preventDefault();
 
-    const database = getDatabase(backronymGenerator);
+    const database = getDatabase(firebase);
 
     const dbRef = ref(database);
 
@@ -83,8 +83,10 @@ function App() {
     <div className="App">
       <h1> check console </h1>
       <Form gatherAllUserInputs={gatherAllUserInputs} />
+      <p>{displayBackronym}</p>
+      <button onClick={handleSave} >Save Backronym</button>
 
-      <button type='submit' onSubmit={handleSave} >Save Backronym</button>
+
     </div>
   );
 }
