@@ -14,7 +14,7 @@ function App() {
   const [ inputThree, setInputThree ] = useState("");
   const [ inputFour, setInputFour ] = useState("");
   
-  const [userInputArray, setUserInputArray] = useState([]);
+  const [ randomWord, setRandomWord ] = useState("");
 
   const userInputs = [];
 
@@ -31,37 +31,32 @@ function App() {
       },
     
     }).then( (response) => {
-      // console.log(response.data)
+      console.log(response.data)
       return response.data;
     });
   }
 
-  for(let i = 1; i <= 4; i++) {
-    userInputs.push(callDataMuse(i));
-
-    // console.log(userInputs, 'this is userInputs')
-  }
-
-  Promise.all(userInputs)
-    .then(promiseArray => {
-      // console.log(responses, 'This is responses')
-      
-      promiseArray.map((letterArray) => {
-        return letterArray.data
-        // letterArray
-
-        const wordArray = letterArray.data;
-        // setUserInputArray(letterArray.data)
-        const randomIndex = Math.floor(Math.random() * wordArray.length);
-        console.log(wordArray[randomIndex].word);
-
-    })
-    
+  
+  useEffect( () => {
+    for(let i = 1; i <= 4; i++) {
+      userInputs.push(callDataMuse(i));
+      console.log(userInputs, 'this is userInputs')
+    }
   })
 
- 
-
+  Promise.all(userInputs)
+  .then(promiseArray => {
+    console.log(promiseArray, 'This is responses')
+    
+    promiseArray.map((letterArray) => {
+      // letterArray.data
+      const randomIndex = Math.floor(Math.random() * letterArray.length);
+      console.log(letterArray[randomIndex].word);
+      setRandomWord(letterArray[randomIndex].word);
+    })
+  })
   
+
       return (
         <div className="App">
             <h1> check console </h1>
