@@ -2,9 +2,13 @@ import axios from 'axios';
 import './App.css';
 import { useEffect, useState } from 'react';
 
+import { getDatabase, push, ref } from 'firebase/database';
+import firebase from './firebase';
+
 import Header from './components/Header';
 import Form from './components/Form';
 import Footer from './components/Footer';
+
 
 function App() {
 
@@ -61,11 +65,26 @@ function App() {
 
 
 
+
+
+  const handleSave = (e) => {
+    e.preventDefault();
+
+    const database = getDatabase(backronymGenerator);
+
+    const dbRef = ref(database);
+
+    // setSaveBackronym({ backronymArray })
+    push(dbRef, backronymArray)
+
+  }
+
   return (
     <div className="App">
       <h1> check console </h1>
       <Form gatherAllUserInputs={gatherAllUserInputs} />
 
+      <button type='submit' onSubmit={handleSave} >Save Backronym</button>
     </div>
   );
 }
