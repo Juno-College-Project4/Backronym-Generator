@@ -2,96 +2,54 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useEffect } from "react/cjs/react.development";
 
+
 // Form component
-const Form = () => {
 
-    
+const Form = (props) => {
 
-
-    // const initialValues =
-    //     letterOne: "",
-    //     letterTwo: "",
-    //     letterThree: "",
-    //     letterFour: "",
-    //;
-
-    // const [ inputOne, setInputOne ] = useState("");
-    // const [ inputTwo, setInputTwo ] = useState("");
-    // const [ inputThree, setInputThree ] = useState("");
-    // const [ inputFour, setInputFour ] = useState("");
-
-    // const userInputs = [ inputOne, inputTwo, inputThree, inputFour ];
-
-    // const [ randomWord, setRandomWord ] = useState("");
-
-    // // Creating a state to store values from the input field
-    // const [ inputValue, setInputValue ] = useState(initialValues);
-
-    // const handleSubmit = (event) => {
-    //     const { name, inputValue } = event.target;
-
-    //     setInputValue({
-    //         ...inputValue,
-    //         [name]: inputValue,
-    //     });
-    //     event.preventDefault();
-    // };
-
-    // const handleUserInput = (event) => {
-    //     const { name, inputValue } = event.target;
-
-    //     setInputValue({
-    //         ...inputValue,
-    //         [name]: inputValue,
-    //     });
-    // };
-
-    // // create function that allows the user to clear the input fields with one button
-    // const resetUserInput = () => {
-    //     setInputValue("");
-    // };
-
-    // // calling the API
-    // const callDataMuse = userInputs.map((userInput) => {
-    //     axios({
-    //         url: 'https://api.datamuse.com/sug?',
-    //         method: 'GET',
-    //         dataType: 'json',
-    //         params: {
-    //             s: userInput,
-    //             max: 20,
-    //         },
-    //     }).then((res) => {
-    //         // console.log(res.data);
-    //         const resultsArray = res.data
-    //         const randomIndex = Math.floor(Math.random() * resultsArray.length);
-    //         console.log(resultsArray[randomIndex].word);
-
-    //         setRandomWord(resultsArray[randomIndex].word);
-    //     });
-    //     return randomWord;
-    // });
-
-    // useEffect(() => {
-    //     callDataMuse();
-    // }, []);
+    const [formInputOne, setFromInputOne] = useState('');
+    const [formInputTwo, setFromInputTwo] = useState('');
+    const [formInputThree, setFromInputThree] = useState('');
+    const [formInputFour, setFromInputFour] = useState('');
 
 
-    // render component
-    return(
-        <div className="formContainer">
-            <form>
-                <input type="text" maxLength={1} placeholder="A"/>
-                <input type="text" maxLength={1} placeholder="C"/>
-                <input type="text" maxLength={1} placeholder="R"/>
-                <input type="text" maxLength={1} placeholder="O"/>
+    const handleInputOne = (e) => {
+        setFromInputOne(e.target.value);
+    }
+
+    const handleInputTwo = (e) => {
+        setFromInputTwo(e.target.value);
+    }
+
+    const handleInputThree = (e) => {
+        setFromInputThree(e.target.value);
+    }
+
+    const handleInputFour = (e) => {
+        setFromInputFour(e.target.value);
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        props.gatherAllUserInputs([formInputOne, formInputTwo, formInputThree, formInputFour])
+    }
+
+    return (
+        <div className="App">
+            <form onSubmit={handleSubmit}>
+                <label htmlFor="search"> Your first letter </label>
+                <input type="text" id='search' placeholder='Letter One' onChange={handleInputOne} value={formInputOne} />
+
+                <label htmlFor="search"> Your second letter </label>
+                <input type="text" id='search' placeholder='Letter Two' onChange={handleInputTwo} value={formInputTwo} />
+
+                <label htmlFor="search"> Your third letter </label>
+                <input type="text" id='search' placeholder='Letter Three' onChange={handleInputThree} value={formInputThree} />
+
+                <label htmlFor="search"> Your fourth letter </label>
+                <input type="text" id='search' placeholder='Letter Four' onChange={handleInputFour} value={formInputFour} />
+                <button >Search</button>
             </form>
-
-            {/* submit button */}
-            <button className="submitButton">Submit</button>
-
-            {/* allows user to reset all the values */}
-            <button className="resetValues">Reset</button>
         </div>
     )
 }

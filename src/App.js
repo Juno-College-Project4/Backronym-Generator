@@ -3,23 +3,18 @@ import './App.css';
 import { useEffect, useState } from 'react';
 
 import Header from './components/Header';
-// import Form from './components/Form';
+import Form from './components/Form';
 import Footer from './components/Footer';
-
 
 function App() {
 
-  const [ inputOne, setInputOne ] = useState("");
-  const [ inputTwo, setInputTwo ] = useState("");
-  const [ inputThree, setInputThree ] = useState("");
-  const [ inputFour, setInputFour ] = useState("");
-  
-  const [ randomWord, setRandomWord ] = useState("");
+  // destructure what the usestate returns 
+  const [backronymArray, setBackronymArray] = useState([]);
+  const [allUserInputs, setAllUserInputs] = useState([]);
 
   const userInputs = [];
 
-  const backronymArray = [];
-
+  // calling the data muse api
   function callDataMuse(userInput) {
     return axios({
       url: "https://api.datamuse.com/sug?",
@@ -27,77 +22,52 @@ function App() {
       dataType: 'json',
       params: {
         s: userInput,
-        max: 20, 
+        max: 20,
       },
-    
-    }).then( (response) => {
+
+    }).then((response) => {
       console.log(response.data)
       return response.data;
     });
   }
 
-  
-  useEffect( () => {
-    for(let i = 1; i <= 4; i++) {
-      userInputs.push(callDataMuse(i));
-      console.log(userInputs, 'this is userInputs')
-    }
-  })
-
-  Promise.all(userInputs)
-  .then(promiseArray => {
-    console.log(promiseArray, 'This is responses')
-    
-    promiseArray.map((letterArray) => {
-      // letterArray.data
-      const randomIndex = Math.floor(Math.random() * letterArray.length);
-      console.log(letterArray[randomIndex].word);
-      setRandomWord(letterArray[randomIndex].word);
-    })
-  })
-  
-
-      return (
-        <div className="App">
-            <h1> check console </h1>
-        </div>
-    );
+  // creating a function to gather user inputs from the form
+  const gatherAllUserInputs = (inputs) => {
+    setAllUserInputs(inputs)
   }
 
+  useEffect(() => {
+    // looping through userInPuts from form 
+    for (let i = 0; i < allUserInputs.length; i++) {
+      userInputs.push(callDataMuse(allUserInputs[i]));
+    }
+
+    // watch for completion of loop
+    Promise.all(userInputs)
+      .then(promiseArray => {
+
+        // map through array of arrays
+        const randomWordArray = promiseArray.map((letterArray) => {
+          // get random word from array
+          const randomIndex = Math.floor(Math.random() * letterArray.length);
+          return letterArray[randomIndex].word;
+        })
+
+        setBackronymArray(randomWordArray);
+
+      })
+
+  }, [allUserInputs])
+
+
+
+  return (
+    <div className="App">
+      <h1> check console </h1>
+      <Form gatherAllUserInputs={gatherAllUserInputs} />
+
+    </div>
+  );
+}
 
 export default App;
-
-
-
-
-//   // const userInputs = [ inputOne, inputTwo, inputThree, inputFour ];
-//   // console.log(userInputs);
-
-//   // const [ randomWord, setRandomWord] = useState([]);
-
-//   // const callDataMuse = userInputs.map((userInput) => {
-//   //   const backronymArray = [];
-//   //   axios({
-//   //       url: "https://api.datamuse.com/sug?",
-//   //       method: 'GET',
-//   //       dataType: 'json',
-//   //       params: {
-//   //         s: userInput,
-//   //         max: 20, 
-//   //       },
-
-//   //     }).then((response) => {
-
-//   //       return response;
-        
-//   //     // const resultsArray = response.data;
-//   //     // // console.log(resultsArray, 'dataresponse works');
-//   //     // const randomIndex = Math.floor(Math.random() * resultsArray.length);
-//   //     // // console.log(randomIndex, 'index works');
-//   //     // setRandomWord(resultsArray[randomIndex].word);
-//   //     // // console.log(randomWordLocal, 'last one works');
-//   //     // console.log(resultsArray[randomIndex].word);
-//   //     })
-//   //   });
-
-//     // console.log(callDataMuse);
