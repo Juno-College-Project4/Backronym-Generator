@@ -2,11 +2,13 @@
 const Header = () => {
     return (
         <div className="headerSplash">
-            <h1 className="mainTitle"><span className="borderStyle">Backr</span>onyms</h1>
-            <ul className="listLinks">
-                <li>How to use</li>
-                <li>Past Backronyms</li>
-            </ul>
+            <div className="wrapper">
+                <h1 className="mainTitle">Backr<span className="borderStyle">onyms</span></h1>
+                <ul className="listLinks">
+                    <li><a href="">How to use</a></li>
+                    <li><a href="">Past Backronyms</a></li>
+                </ul>
+            </div>
         </div>
     )
 }

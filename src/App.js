@@ -7,6 +7,7 @@ import firebase from './firebase';
 
 import Header from './components/Header';
 import Intro from './components/Intro';
+import BackronymList from './components/BackronymList';
 import Form from './components/Form';
 import Footer from './components/Footer';
 
@@ -85,10 +86,10 @@ function App() {
         <main>
           <Intro />
           
-          <Form gatherAllUserInputs={gatherAllUserInputs} />
-          <p className="generateBackronym">This is what it means:</p>
-          <p className="theBackronym">{displayBackronym}</p>
-          <button className="saveButton" onClick={handleSave}>Save Backronym</button>
+            <Form gatherAllUserInputs={gatherAllUserInputs} />
+            <p className="generateBackronym">This is what it means:</p>
+            <p className="theBackronym">{displayBackronym}</p>
+            <button className="saveButton" onClick={handleSave}>Save Backronym</button>
 
           <BackronymList />
         </main>
