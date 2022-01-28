@@ -1,5 +1,5 @@
 import { getDatabase, ref, onValue } from 'firebase/database';
-import { useState } from 'react/cjs/react.development';
+import { useState } from 'react';
 import firebase from '../firebase';
 
 const BackronymList = () => {
@@ -13,17 +13,17 @@ const BackronymList = () => {
         const database = getDatabase(firebase);
 
         const dbRef = ref(database);
-        
+
         onValue(dbRef, (response) => {
-            
+
             const objFromFirebase = response.val()
 
             const newBackronymArray = []
             for (let key in objFromFirebase) {
                 const arrayInObj = objFromFirebase[key]
-              
+
                 newBackronymArray.push(arrayInObj)
-               
+
                 setSavedBackronymArray(newBackronymArray)
             }
         })
