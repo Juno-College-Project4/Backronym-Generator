@@ -1,5 +1,5 @@
 import axios from 'axios';
-import './App.css';
+import './styles.css';
 import { useEffect, useState } from 'react';
 
 import { getDatabase, push, ref } from 'firebase/database';
@@ -86,10 +86,11 @@ function App() {
           <Intro />
           
           <Form gatherAllUserInputs={gatherAllUserInputs} />
-          <p>{displayBackronym}</p>
-          <button onClick={handleSave} >Save Backronym</button>
+          <p className="generateBackronym">This is what it means:</p>
+          <p className="theBackronym">{displayBackronym}</p>
+          <button className="saveButton" onClick={handleSave}>Save Backronym</button>
 
-          <BackroymList />
+          <BackronymList />
         </main>
       <Footer />
     </div>

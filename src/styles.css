@@ -1,0 +1,420 @@
+html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,footer,header,nav,section{display:block}h1{font-size:2em;margin:.67em 0}figcaption,figure,main{display:block}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent;-webkit-text-decoration-skip:objects}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}dfn{font-style:italic}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}audio,video{display:inline-block}audio:not([controls]){display:none;height:0}img{border-style:none}svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{font-family:sans-serif;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}button,html [type=button],[type=reset],[type=submit]{-webkit-appearance:button}button::-moz-focus-inner,[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner{border-style:none;padding:0}button:-moz-focusring,[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{display:inline-block;vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details,menu{display:block}summary{display:list-item}canvas{display:inline-block}template{display:none}[hidden]{display:none}
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Maitree&family=Montserrat&display=swap');
+
+
+
+/* wrapper */
+
+.wrapper {
+
+    max-width: 1200px;
+
+    width: 90%;
+
+    margin: 0 auto;
+
+}
+
+
+.App {
+
+    text-align: center;
+
+}
+
+
+
+/* TYPEFONTS */
+
+h1 {
+
+    font-family: 'Maitree'
+
+}
+
+
+
+p, input, button {
+
+    font-family: 'Montserrat';
+
+}
+
+
+
+/* GENERAL STYLES */
+
+main {
+
+    background-color: #FFFFFF;
+
+    /* height: 72vh; */
+
+}
+
+
+
+/* HEADER STYLES */
+
+.headerSplash {
+
+    /* background-color: #F6E6E6; */
+
+    background: linear-gradient(#F4E6E8, #FFFFFF);
+
+    overflow: hidden;
+
+}
+
+
+
+.mainTitle {
+
+    position: relative;
+
+    margin: 30px 0px;
+
+    text-transform: uppercase;
+
+    font-size: 2.7em;
+
+}
+
+
+
+.mainTitle::before {
+
+    content: '';
+
+    position: absolute;
+
+    background-color: #FF7600;
+
+    width: 7%;
+
+    height: 3px;
+
+    top: 0px;
+
+    left: -10px;
+
+}
+
+
+
+.mainTitle::after {
+
+    content:'';
+
+    position: absolute;
+
+    background-color: #FF7600;
+
+    width: 3px;
+
+    height: 45%;
+
+    top: 3px;
+
+    left: -10px;
+
+}
+
+
+
+.borderStyle {
+
+    position: relative;
+
+}
+
+
+
+.borderStyle::before {
+
+    content:'';
+
+    position: absolute;
+
+    background-color: #81003C;
+
+    width: 30%;
+
+    height: 3px;
+
+    bottom: 0px;
+
+    right: -10px;
+
+}
+
+
+
+.borderStyle::after {
+
+    content:'';
+
+    position: absolute;
+
+    background-color: #81003C;
+
+    width: 3px;
+
+    height: 45%;
+
+    bottom: 3px;
+
+    right: -10px;
+
+}
+
+
+
+.headerSplash h1 {
+
+    display: flex;
+
+    justify-content: flex-start;
+
+}
+
+
+
+.listLinks {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    list-style-type: none;
+
+}
+
+
+
+.listLinks li {
+
+    padding: 50px 10px 0px 10px;
+
+}
+
+
+
+.listLinks a {
+
+    padding: 10px 10px;
+
+    transition: 200ms;
+
+    text-decoration: none;
+
+    text-transform: uppercase;
+
+    color: black;
+
+}
+
+
+
+.listLinks a:hover {
+
+    background-color: #F4E6E8;
+
+}
+
+
+
+span {
+
+    display: inline-block;
+
+}
+
+
+
+
+
+/*** MAIN SECTION ***/
+
+.secondaryTitle {
+
+    text-transform: uppercase;
+
+    display: inline-block;
+
+    margin: 55px auto 0px;
+
+}
+
+
+
+.backwards {
+
+    color: #FF7600;
+
+    transform: scale(-1, 1);
+
+    transition: all 1s;
+
+}
+
+
+
+.backwards:hover {
+
+    transform: scale(1);
+
+}
+
+
+
+.acroSlogan {
+
+    margin: 30px auto;
+
+    width: 50%;
+
+}
+
+
+
+.generateBackronym {
+
+    font-size: 1.5em;
+
+    margin-bottom: 10px;
+
+}
+
+
+
+.theBackronym {
+
+    text-transform: uppercase;
+
+    font-weight: 700;
+
+    color: #FF7600;
+
+    margin: 10px auto;
+
+    padding: 10px;
+
+}
+
+
+
+input {
+
+    font-size: 2.4rem;
+
+    text-align: center;
+
+    text-transform: uppercase;
+
+    border: 2px solid #FF7600;
+
+    width: 70px;
+
+    height: 70px;
+
+    margin: 0px 5px;
+
+}
+
+
+
+.searchButton {
+
+    background-color: rgb(221, 221, 221);
+
+    border: none;
+
+    font-size: 1.4em;
+
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    padding: 5px 35px;
+
+    margin-top: 25px;
+
+    transition: all 300ms;
+
+}
+
+
+
+.searchButton:hover {
+
+    background-color: #FF7600;
+
+    transform: scale(1.01);
+
+}
+
+
+
+.saveButton {
+
+    background-color: rgb(221, 221, 221);
+
+    border: none;
+
+    font-size: 1.4em;
+
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    padding: 5px 35px;
+
+    margin: 25px 0px 25px;
+
+    transition: all 300ms;
+
+}
+
+
+
+.saveButton:hover {
+
+    background-color: #FF7600;
+
+    transform: scale(1.01);
+
+}
+
+
+
+
+
+/* FOOTER STYLES */
+
+footer {
+
+    background-color: #222222;
+
+    color: whitesmoke;
+
+    padding-top: 5px;
+
+    padding-bottom: 5px;
+
+}
+
+
+
+footer p {
+
+    text-align: center;
+
+    margin: 0 auto;
+
+    padding: 5px;
+
+}

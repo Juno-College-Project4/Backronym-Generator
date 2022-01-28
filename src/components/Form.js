@@ -42,22 +42,48 @@ const Form = (props) => {
 
     return (
         <div className="App">
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="search"> Your first letter </label>
-                <input type="text" id='search' placeholder='Letter One' onChange={handleInputOne} value={formInputOne} />
+            <form>
+                <input 
+                    type="text" 
+                    id='search' 
+                    placeholder='A'
+                    maxLength={1}
+                    aria-label="Input the first letter of the acronym here"
+                    onChange={handleInputOne} 
+                    value={formInputOne} 
+                />
 
-                <label htmlFor="search"> Your second letter </label>
-                <input type="text" id='search' placeholder='Letter Two' onChange={handleInputTwo} value={formInputTwo} />
+                <input 
+                    type="text" 
+                    id='search' 
+                    placeholder='C' 
+                    aria-label="Input the second letter of the acronym here"
+                    maxLength={1}
+                    onChange={handleInputTwo} 
+                    value={formInputTwo} 
+                />
 
-                <label htmlFor="search"> Your third letter </label>
-                <input type="text" id='search' placeholder='Letter Three' onChange={handleInputThree} value={formInputThree} />
+                <input 
+                    type="text" 
+                    id='search' 
+                    placeholder='R' 
+                    aria-label="Input the third letter of the acronym here"
+                    maxLength={1}
+                    onChange={handleInputThree} 
+                    value={formInputThree} 
+                />
 
-                <label htmlFor="search"> Your fourth letter </label>
-                <input type="text" id='search' placeholder='Letter Four' onChange={handleInputFour} value={formInputFour} />
-                <button >Search</button>
+                <input 
+                    type="text" 
+                    id='search' 
+                    placeholder='O' 
+                    aria-label="Input the fourth letter of the acronym here"
+                    maxLength={1}
+                    onChange={handleInputFour} 
+                    value={formInputFour} 
+                />
             </form>
-
-
+            <button className="searchButton" onClick={handleSubmit}>Search</button>
 
         </div>
     )
