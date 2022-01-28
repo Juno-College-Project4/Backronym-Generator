@@ -9,423 +9,252 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}bo
 /* wrapper */
 
 .wrapper {
-
     max-width: 1200px;
-
     width: 90%;
-
     margin: 0 auto;
-
 }
 
 
 .App {
-
     text-align: center;
-
 }
-
 
 
 /* TYPEFONTS */
 
 h1 {
-
     font-family: 'Maitree'
-
 }
-
 
 
 p, input, li, button {
-
     font-family: 'Montserrat';
-
 }
-
 
 
 /* GENERAL STYLES */
 
 main {
-
     background-color: #FFFFFF;
-
-    /* height: 72vh; */
-
 }
-
 
 
 /* HEADER STYLES */
 
 .headerSplash {
-
     background: linear-gradient(#F4E6E8, #FFFFFF);
-
     overflow: hidden;
-
 }
-
 
 
 .mainTitle {
-
     position: relative;
-
     margin: 30px 0px;
-
     text-transform: uppercase;
-
     font-size: 2.7em;
-
 }
-
 
 
 .mainTitle::before {
-
     content: '';
-
     position: absolute;
-
     background-color: #FF7600;
-
     width: 7%;
-
     height: 3px;
-
     top: 0px;
-
     left: -10px;
-
 }
-
 
 
 .mainTitle::after {
-
     content:'';
-
     position: absolute;
-
     background-color: #FF7600;
-
     width: 3px;
-
     height: 45%;
-
     top: 3px;
-
     left: -10px;
-
 }
-
 
 
 .borderStyle {
-
     position: relative;
-
 }
-
 
 
 .borderStyle::before {
-
     content:'';
-
     position: absolute;
-
     background-color: #81003C;
-
     width: 30%;
-
     height: 3px;
-
     bottom: 0px;
-
     right: -10px;
-
 }
-
 
 
 .borderStyle::after {
-
     content:'';
-
     position: absolute;
-
     background-color: #81003C;
-
     width: 3px;
-
     height: 45%;
-
     bottom: 3px;
-
     right: -10px;
-
 }
-
 
 
 .headerSplash h1 {
-
     display: flex;
-
     justify-content: flex-start;
-
 }
-
 
 
 .listLinks {
-
     display: flex;
-
     justify-content: flex-end;
-
     list-style-type: none;
-
 }
-
 
 
 .listLinks li {
-
     padding: 50px 10px 0px 10px;
-
 }
-
 
 
 .listLinks a {
-
     padding: 10px 10px;
-
     transition: 200ms;
-
     text-decoration: none;
-
     text-transform: uppercase;
-
     color: black;
-
 }
-
 
 
 .listLinks a:hover {
-
     background-color: #F4E6E8;
-
 }
-
 
 
 span {
-
     display: inline-block;
-
 }
-
-
-
 
 
 /*** MAIN SECTION ***/
 
 .secondaryTitle {
-
     text-transform: uppercase;
-
     display: inline-block;
-
     margin: 55px auto 0px;
-
 }
-
 
 
 .backwards {
-
     color: #FF7600;
-
     transform: scale(-1, 1);
-
     transition: all 1s;
-
 }
-
 
 
 .backwards:hover {
-
     transform: scale(1);
-
 }
-
 
 
 .acroSlogan {
-
     margin: 30px auto;
-
     width: 50%;
-
 }
-
 
 
 .generateBackronym {
-
     font-size: 1.5em;
-
     margin-bottom: 10px;
-
 }
-
 
 
 .theBackronym {
-
     text-transform: uppercase;
-
     font-size: 1.7rem;
-
     font-weight: 700;
-
     color: #FF7600;
-
     margin: 10px auto;
-
     padding: 10px;
-
 }
-
 
 
 input {
-
     font-size: 2.4rem;
-
     text-align: center;
-
     text-transform: uppercase;
-
     border: 2px solid #FF7600;
-
     width: 70px;
-
     height: 70px;
-
     margin: 0px 5px;
-
 }
-
 
 
 .searchButton {
-
     background-color: rgb(221, 221, 221);
-
     border: none;
-
     font-size: 1.4em;
-
     font-weight: 700;
-
     text-transform: uppercase;
-
     cursor: pointer;
-
     padding: 5px 35px;
-
     margin-top: 25px;
-
     transition: all 300ms;
-
 }
-
 
 
 .searchButton:hover {
-
     background-color: #FF7600;
-
     transform: scale(1.01);
-
 }
-
 
 
 .saveButton {
-
     background-color: rgb(221, 221, 221);
-
     border: none;
-
     font-size: 1.4em;
-
     text-transform: uppercase;
-
     cursor: pointer;
-
     padding: 5px 35px;
-
     margin: 25px 0px 25px;
-
     transition: all 300ms;
-
 }
-
 
 
 .saveButton:hover {
-
     background-color: #FF7600;
-
     transform: scale(1.01);
-
 }
+
 
 .historyList {
     padding-left: 0px;
 }
 
 
-/* .saveHistory {
-    padding: 0 auto;
-    margin: 0 auto;
-} */
-
-
 .seeHistory {
     background-color: rgb(221, 221, 221);
-
     border: none;
-
     font-size: 1.4em;
-
     text-transform: uppercase;
-
     cursor: pointer;
-
     padding: 5px 35px;
-
     margin: 25px 0px 25px;
-
     transition: all 300ms;
 }
 
+
 .seeHistory:hover {
     background-color: #FF7600;
-
     transform: scale(1.01);
 
 }
+
 
 .savedBackronyms {
     background: linear-gradient(45deg, #FF7600, #F4E6E8);
@@ -440,32 +269,21 @@ input {
 }
 
 
-
-
 /* FOOTER STYLES */
 footer {
-
     background-color: #222222;
-
     color: whitesmoke;
-
     padding-top: 5px;
-
     padding-bottom: 5px;
-
 }
-
 
 
 footer p {
-
     text-align: center;
-
     margin: 0 auto;
-
     padding: 5px;
-
 }
+
 
 /* MEDIA QUERIES */
 @media (max-width: 600px) {

@@ -1,7 +1,4 @@
-import axios from "axios";
 import React, { useState } from "react";
-import { useEffect } from "react/cjs/react.development";
-
 
 // Form component
 
@@ -11,8 +8,6 @@ const Form = (props) => {
     const [formInputTwo, setFromInputTwo] = useState('');
     const [formInputThree, setFromInputThree] = useState('');
     const [formInputFour, setFromInputFour] = useState('');
-
-    const [saveBackronym, setSaveBackronym] = useState([]);
 
 
     const handleInputOne = (e) => {
@@ -35,9 +30,6 @@ const Form = (props) => {
         e.preventDefault();
         props.gatherAllUserInputs([formInputOne, formInputTwo, formInputThree, formInputFour])
     }
-
-
-
 
 
     return (

@@ -64,11 +64,10 @@ function App() {
 
   }, [allUserInputs])
 
-
-
-
+  // adding spaces into array result and making it into a string
   const displayBackronym = backronymArray.join(" ")
 
+  // save our generated backronym to firebase
   const handleSave = (e) => {
     e.preventDefault();
 
@@ -87,10 +86,10 @@ function App() {
             <p className="generateBackronym">This is what it means:</p>
             <p className="theBackronym">{displayBackronym}</p>
             
-          <div class="saveHistory">
+          <div className="saveHistory">
             <button className="saveButton" onClick={handleSave}>Save Backronym</button>
 
-          <BackronymList />
+            <BackronymList />
           </div>
         </main>
       <Footer />
