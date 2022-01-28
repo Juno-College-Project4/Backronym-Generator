@@ -41,13 +41,13 @@ const BackronymList = () => {
 
 
     return (
-        <div>
-            <button onClick={handleHistory} >See History</button>
+        <div className="wrapper">
+            <button onClick={handleHistory} className="seeHistory">See History</button>
 
-            <ul>
+            <ul className="historyList">
                 {savedBackronymArray.map((savedBackronym) => {
                     return (
-                        <li>{savedBackronym.join("  ")}</li>
+                        <li className="savedBackronyms">{savedBackronym.join(" ")}</li>
                     )
                 })}
             </ul>

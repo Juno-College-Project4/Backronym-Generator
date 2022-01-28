@@ -37,7 +37,7 @@ h1 {
 
 
 
-p, input, button {
+p, input, li, button {
 
     font-family: 'Montserrat';
 
@@ -293,6 +293,8 @@ span {
 
     text-transform: uppercase;
 
+    font-size: 1.7rem;
+
     font-weight: 700;
 
     color: #FF7600;
@@ -332,6 +334,8 @@ input {
     border: none;
 
     font-size: 1.4em;
+
+    font-weight: 700;
 
     text-transform: uppercase;
 
@@ -387,12 +391,58 @@ input {
 
 }
 
+.historyList {
+    padding-left: 0px;
+}
+
+
+/* .saveHistory {
+    padding: 0 auto;
+    margin: 0 auto;
+} */
+
+
+.seeHistory {
+    background-color: rgb(221, 221, 221);
+
+    border: none;
+
+    font-size: 1.4em;
+
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    padding: 5px 35px;
+
+    margin: 25px 0px 25px;
+
+    transition: all 300ms;
+}
+
+.seeHistory:hover {
+    background-color: #FF7600;
+
+    transform: scale(1.01);
+
+}
+
+.savedBackronyms {
+    background: linear-gradient(45deg, #FF7600, #F4E6E8);
+    text-align: center;
+    text-transform: uppercase;
+    list-style-type: none;
+    width: 60%;
+    margin: 10px auto;
+    padding: 10px 0px;
+    border: 2px solid #222222;
+    border-radius: 5px;
+}
 
 
 
 
 /* FOOTER STYLES */
-
 footer {
 
     background-color: #222222;
@@ -415,4 +465,58 @@ footer p {
 
     padding: 5px;
 
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 600px) {
+    .headerSplash h1 {
+        justify-content: center;
+        border-bottom: 3px solid black;
+        line-height: 90px;
+    }
+
+    .mainTitle {
+        text-align: center;
+    }
+    
+    .mainTitle::before {
+        display: none;
+    }
+
+    .mainTitle::after {
+        display: none;
+    }
+
+    .borderStyle::before {
+        display: none;
+    }
+
+    .borderStyle::after {
+        display: none;
+    }
+
+    .listLinks {
+        justify-content: center;
+        padding-left: 0px;
+    }
+
+    .acroSlogan {
+        width: 85%;
+    }
+
+    .searchButton {
+        padding: 10px 30px;
+    }
+
+    .savedBackronyms {
+        width: 80%;
+    }
+
+    .saveButton {
+        padding: 10px 25px;        
+    }
+
+    .seeHistory {
+        padding: 10px 64px;
+    }
 }

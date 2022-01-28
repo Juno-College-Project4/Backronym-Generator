@@ -73,11 +73,8 @@ function App() {
     e.preventDefault();
 
     const database = getDatabase(firebase);
-
     const dbRef = ref(database);
-
     push(dbRef, backronymArray)
-
   }
 
   return (
@@ -89,9 +86,12 @@ function App() {
             <Form gatherAllUserInputs={gatherAllUserInputs} />
             <p className="generateBackronym">This is what it means:</p>
             <p className="theBackronym">{displayBackronym}</p>
+            
+          <div class="saveHistory">
             <button className="saveButton" onClick={handleSave}>Save Backronym</button>
 
           <BackronymList />
+          </div>
         </main>
       <Footer />
     </div>
