@@ -30,7 +30,6 @@ function App() {
       },
 
     }).then((response) => {
-      console.log(response.data)
       return response.data;
     });
   }
@@ -64,8 +63,9 @@ function App() {
   }, [allUserInputs])
 
 
-  const displayBackronym = backronymArray.join(' ')
 
+
+  const displayBackronym = backronymArray.join(" ")
 
   const handleSave = (e) => {
     e.preventDefault();
@@ -74,7 +74,6 @@ function App() {
 
     const dbRef = ref(database);
 
-    // setSaveBackronym({ backronymArray })
     push(dbRef, backronymArray)
 
   }
@@ -86,7 +85,7 @@ function App() {
       <p>{displayBackronym}</p>
       <button onClick={handleSave} >Save Backronym</button>
 
-
+      <BackroymList />
     </div>
   );
 }
