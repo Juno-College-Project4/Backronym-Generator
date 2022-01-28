@@ -6,6 +6,7 @@ import { getDatabase, push, ref } from 'firebase/database';
 import firebase from './firebase';
 
 import Header from './components/Header';
+import Intro from './components/Intro';
 import Form from './components/Form';
 import Footer from './components/Footer';
 
@@ -80,12 +81,17 @@ function App() {
 
   return (
     <div className="App">
-      <h1> check console </h1>
-      <Form gatherAllUserInputs={gatherAllUserInputs} />
-      <p>{displayBackronym}</p>
-      <button onClick={handleSave} >Save Backronym</button>
+      <Header />
+        <main>
+          <Intro />
+          
+          <Form gatherAllUserInputs={gatherAllUserInputs} />
+          <p>{displayBackronym}</p>
+          <button onClick={handleSave} >Save Backronym</button>
 
-      <BackroymList />
+          <BackroymList />
+        </main>
+      <Footer />
     </div>
   );
 }
